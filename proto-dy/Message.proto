@@ -51,6 +51,8 @@ message ResBindRoom {
   required string roomid = 2;
   // 主播信息
   optional StreamerInfo streamer = 3;
+  // 该房间内已加入阵营的所有用户信息
+  repeated UserInfo users = 4;
 }
 
 // 2003
