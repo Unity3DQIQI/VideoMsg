@@ -1,0 +1,120 @@
+syntax = "proto2"; //版本
+option java_package="com.msg.dy";
+option java_outer_classname = "Message";
+
+message MsgProtocol {
+  //消息名,如客户端请求绑定房间,填写reqBindRoom
+  optional ReqLogin reqLogin = 1;
+  optional ReqBindRoom reqBindRoom = 2;
+  optional ReqStartGameSet reqStartGameSet = 3;
+
+  optional ResLogin resLogin = 4;
+  optional ResBindRoom resBindRoom = 5;
+  optional ResEnterCamp resEnterCamp = 6;
+  optional ResSendItem resSendItem = 7;
+  optional ResStartGameSet resStartGameSet = 8;
+  optional ResStatusChange resStatusChange = 9;
+  optional ResCountDown resCountDown = 10;
+}
+
+// id 1001
+message ReqLogin {
+  required string account = 1;
+  required string password = 2;
+  // 不同平台,抖音为dy
+  required string platform = 3;
+}
+
+// 1002
+message ReqBindRoom {
+  required string token = 1;
+}
+
+// 1003 开始一局对战
+message ReqStartGameSet {
+}
+
+// 2001
+message ResLogin {
+  // 结果,1表示成功
+  required int32 result = 1;
+  // 错误码,1001表示用户名密码错误
+  // 1002 未登录
+  optional int32 errorCode = 2;
+}
+
+// 2002
+message ResBindRoom {
+  // 结果,1表示成功
+  required int32 result = 1;
+  // 房间号
+  required string roomid = 2;
+  // 主播信息
+  optional StreamerInfo streamer = 3;
+}
+
+// 2003
+message ResEnterCamp {
+  // 加入阵营的用户信息
+  required UserInfo user = 1;
+  // 该房间内已加入阵营的所有用户信息
+  repeated UserInfo users = 2;
+}
+
+// 2004
+message ResSendItem {
+  required UserInfo user = 1;
+  required ItemInfo item = 2;
+}
+
+// 2005
+message ResStartGameSet {
+  // 结果, 1表示成功
+  required int32 result = 1;
+  // 局号
+  required string gameSetId = 2;
+}
+
+// 2006
+message ResStatusChange {
+  // 房间状态名:IDLE--空闲,等待中,STARTED--已开始,进行中,SETTLE--结算中
+  required string status = 1;
+}
+
+// 2007
+message ResCountDown {
+  // 本局STARTED状态总时长(秒)
+  required int32 total = 1;
+  // 剩余时长(秒)
+  required int32 left = 2;
+}
+
+// 主播信息
+message StreamerInfo {
+  // 账号,游戏内账号,我方提供
+  required string account = 1;
+  // 平台id,抖音方主播的id
+  required string platformId = 2;
+  // 主播在平台的昵称
+  required string name = 3;
+}
+
+// 普通用户信息
+message UserInfo {
+  // 平台方的id
+  required string platformId = 1;
+  // 名字,昵称
+  required string name = 2;
+  // 阵营
+  required string camp = 3;
+}
+
+// 礼物信息
+message ItemInfo {
+  // 礼物id
+  required int32 itemId = 1;
+  // 礼物名字
+  required string name = 2;
+  // 价格
+  required int32 cost = 3;
+}

@@ -1,0 +1,10 @@
+ReqLogin=1001
+ReqBindRoom=1002
+ReqStartGameSet=1003
+ResLogin=2001
+ResBindRoom=2002
+ResEnterCamp=2003
+ResSendItem=2004
+ResStartGameSet=2005
+ResStatusChange=2006
+ResCountDown=2007
