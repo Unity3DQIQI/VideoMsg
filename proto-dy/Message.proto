@@ -7,14 +7,17 @@ message MsgProtocol {
   optional ReqLogin reqLogin = 1;
   optional ReqBindRoom reqBindRoom = 2;
   optional ReqStartGameSet reqStartGameSet = 3;
+  optional ReqSaveGame reqSaveGame = 4;
+  optional ReqLoadGame reqLoadGame = 5;
 
-  optional ResLogin resLogin = 4;
-  optional ResBindRoom resBindRoom = 5;
-  optional ResEnterCamp resEnterCamp = 6;
-  optional ResSendItem resSendItem = 7;
-  optional ResStartGameSet resStartGameSet = 8;
-  optional ResStatusChange resStatusChange = 9;
-  optional ResCountDown resCountDown = 10;
+  optional ResLogin resLogin = 6;
+  optional ResBindRoom resBindRoom = 7;
+  optional ResEnterCamp resEnterCamp = 8;
+  optional ResSendItem resSendItem = 9;
+  optional ResStartGameSet resStartGameSet = 10;
+  optional ResStatusChange resStatusChange = 11;
+  optional ResCountDown resCountDown = 12;
+  optional ResLoadGame resLoadGame = 13;
 }
 
 // id 1001
@@ -34,6 +37,19 @@ message ReqBindRoom {
 message ReqStartGameSet {
 }
 
+// 1004 存游戏数据
+message ReqSaveGame {
+  // 局号
+  required string gameSetId = 1;
+  // 游戏数据,json格式
+  required string data = 2;
+}
+
+// 1005 读游戏数据
+message ReqLoadGame {
+  required string gameSetId = 1;
+}
+
 // 2001
 message ResLogin {
   // 结果,1表示成功
@@ -49,10 +65,11 @@ message ResBindRoom {
   required int32 result = 1;
   // 房间号
   required string roomid = 2;
+  optional string gameSetId = 3;
   // 主播信息
-  optional StreamerInfo streamer = 3;
+  optional StreamerInfo streamer = 4;
   // 该房间内已加入阵营的所有用户信息
-  repeated UserInfo users = 4;
+  repeated UserInfo users = 5;
 }
 
 // 2003
@@ -89,6 +106,20 @@ message ResCountDown {
   required int32 total = 1;
   // 剩余时长(秒)
   required int32 left = 2;
+}
+
+// 2008 读游戏数据相应
+message ResLoadGame {
+  // 结果,1表示成功
+  required int32 result = 1;
+  // 句号
+  required string gameSetId = 2;
+  // 游戏数据
+  required string data = 3;
+  // 创建时间
+  required int64 createTime = 4;
+  // 最新一次更新时间
+  required int64 updateTime = 5;
 }
 
 // 主播信息
