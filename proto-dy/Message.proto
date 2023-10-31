@@ -57,6 +57,12 @@ message ReqSettle {
   required string winCamp = 1;
 }
 
+// 1007 获取排行榜
+message ReqRank {
+  // 排行榜类型:WORLD表示世界排行,LIVE表示直播间排行
+  required string rankType = 1;
+}
+
 // 2001
 message ResLogin {
   // 错误码,1001表示用户名密码错误
@@ -137,6 +143,11 @@ message ResSettle {
   repeated RankItem roundRanks = 3;
 }
 
+// 2010 返回排行信息
+message ResRank {
+  repeated RankItem ranks = 1;
+}
+
 // 主播信息
 message StreamerInfo {
   // 账号,游戏内账号,我方提供
@@ -159,6 +170,10 @@ message UserInfo {
   required string camp = 3;
   // 头像地址
   required string headUrl = 4;
+  // 汗水值
+  required int64 score = 5;
+  // 小黄鸭
+  required int64 score0 = 6;
 }
 
 // 礼物信息
@@ -182,7 +197,9 @@ message RankItem {
   required int32 rank = 1;
   // 获得的积分(汗水值)
   required int64 score = 2;
+  // 小黄鸭
+  optional int64 score0 = 3;
   // 排名变化
-  required int32 rankChange = 3;
-  required UserInfo user = 4;
+  required int32 rankChange = 4;
+  required UserInfo user = 5;
 }
