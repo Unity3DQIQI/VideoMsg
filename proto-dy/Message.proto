@@ -145,13 +145,12 @@ message ResSettle {
 
 // 2010 返回排行信息
 message ResRank {
-  repeated RankItem ranks = 1;
+  required string rankType = 1;
+  repeated RankItem ranks = 2;
 }
 
 // 主播信息
 message StreamerInfo {
-  // 账号,游戏内账号,我方提供
-  required string account = 1;
   // 平台id,抖音方主播的id
   required string platformId = 2;
   // 主播在平台的昵称
