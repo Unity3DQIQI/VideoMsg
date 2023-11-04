@@ -77,7 +77,7 @@ message ResBindRoom {
   // 房间号
   optional string roomid = 2;
   // 房间状态 IDLE表示房间空闲,STARTED表示游戏已开始,SETTLE表示结算中
-  required string status = 3;
+  optional string status = 3;
   optional string gameSetId = 4;
   // 主播信息
   optional StreamerInfo streamer = 5;
