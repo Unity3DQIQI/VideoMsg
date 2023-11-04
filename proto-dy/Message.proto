@@ -2,24 +2,6 @@ syntax = "proto2"; //版本
 option java_package="com.msg.dy";
 option java_outer_classname = "Message";
 
-message MsgProtocol {
-  //消息名,如客户端请求绑定房间,填写reqBindRoom
-  optional ReqLogin reqLogin = 1;
-  optional ReqBindRoom reqBindRoom = 2;
-  optional ReqStartGameSet reqStartGameSet = 3;
-  optional ReqSaveGame reqSaveGame = 4;
-  optional ReqLoadGame reqLoadGame = 5;
-
-  optional ResLogin resLogin = 6;
-  optional ResBindRoom resBindRoom = 7;
-  optional ResEnterCamp resEnterCamp = 8;
-  optional ResSendItem resSendItem = 9;
-  optional ResStartGameSet resStartGameSet = 10;
-  optional ResStatusChange resStatusChange = 11;
-  optional ResCountDown resCountDown = 12;
-  optional ResLoadGame resLoadGame = 13;
-}
-
 // id 1001
 message ReqLogin {
   required string account = 1;
