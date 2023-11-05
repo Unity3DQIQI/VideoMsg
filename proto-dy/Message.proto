@@ -131,6 +131,11 @@ message ResRank {
   repeated RankItem ranks = 2;
 }
 
+// 2011 遊戲內排行榜
+message ResGameRank {
+  repeated RankItem ranks = 1;
+}
+
 // 主播信息
 message StreamerInfo {
   // 平台id,抖音方主播的id
