@@ -133,7 +133,8 @@ message ResRank {
 
 // 2011 遊戲內排行榜
 message ResGameRank {
-  repeated RankItem ranks = 1;
+  repeated RankItem rank1 = 1;
+  repeated RankItem rank2 = 2;
 }
 
 // 主播信息
