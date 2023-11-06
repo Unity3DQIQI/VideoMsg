@@ -13,7 +13,8 @@ message ReqLogin {
 // 1002
 message ReqBindRoom {
   required string token = 1;
-  optional string platform = 2;
+  required string platform = 2;
+  required string gameKey = 3;
 }
 
 // 1003 开始一局对战
