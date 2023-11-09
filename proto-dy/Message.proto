@@ -162,6 +162,8 @@ message UserInfo {
   required int64 score = 5;
   // 小黄鸭
   required int64 score0 = 6;
+  // 世界排名
+  required int32 rank = 7;
 }
 
 // 礼物信息
