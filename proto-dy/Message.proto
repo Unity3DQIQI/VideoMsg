@@ -46,6 +46,10 @@ message ReqRank {
   required string rankType = 1;
 }
 
+// 1008 结束一局对战,用于从结算界面转到准备界面
+message ReqEndGameSet {
+}
+
 // 2001
 message ResLogin {
   // 错误码,1001表示用户名密码错误
@@ -136,6 +140,11 @@ message ResRank {
 message ResGameRank {
   repeated RankItem rank1 = 1;
   repeated RankItem rank2 = 2;
+}
+
+// 2022
+message ResEndGameSet {
+  required int32 errorCode = 1;
 }
 
 // 主播信息
