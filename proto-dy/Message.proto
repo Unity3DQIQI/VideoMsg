@@ -142,7 +142,7 @@ message ResGameRank {
   repeated RankItem rank2 = 2;
 }
 
-// 2022
+// 2012
 message ResEndGameSet {
   required int32 errorCode = 1;
 }
