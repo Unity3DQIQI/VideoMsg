@@ -50,6 +50,10 @@ message ReqRank {
 message ReqEndGameSet {
 }
 
+// 1009 心跳
+message ReqHeart {
+}
+
 // 2001
 message ResLogin {
   // 错误码,1001表示用户名密码错误
@@ -145,6 +149,10 @@ message ResGameRank {
 // 2012
 message ResEndGameSet {
   required int32 errorCode = 1;
+}
+
+// 2013 回复心跳
+message ResHeart {
 }
 
 // 主播信息
