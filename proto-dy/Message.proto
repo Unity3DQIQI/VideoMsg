@@ -46,8 +46,8 @@ message ReqRank {
   required string rankType = 1;
 }
 
-// 1008 结束一局对战,用于从结算界面转到准备界面
-message ReqEndGameSet {
+// 1008 结束一局结算界面,用于从结算界面转到准备界面
+message ReqEndSettle {
 }
 
 // 1009 心跳
@@ -147,7 +147,7 @@ message ResGameRank {
 }
 
 // 2012
-message ResEndGameSet {
+message ResEndSettle {
   required int32 errorCode = 1;
 }
 
