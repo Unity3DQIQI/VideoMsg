@@ -82,7 +82,6 @@ message ResEnterCamp {
   repeated UserInfo users = 1;
   // 该房间内已加入阵营的所有用户信息,未包含本次加入的
   repeated UserInfo totalUsers = 2;
-  required bool byGift = 3;
 }
 
 // 2004
@@ -198,6 +197,8 @@ message ItemInfo {
   required int32 totalNum = 5;
   // 送礼物的人
   required UserInfo user = 6;
+  // 是否送礼前创建玩家形象
+  required bool createUser = 7;
 }
 
 message RankItem {
