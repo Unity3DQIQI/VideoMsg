@@ -82,6 +82,7 @@ message ResEnterCamp {
   repeated UserInfo users = 1;
   // 该房间内已加入阵营的所有用户信息,未包含本次加入的
   repeated UserInfo totalUsers = 2;
+  required bool byGift = 3;
 }
 
 // 2004
