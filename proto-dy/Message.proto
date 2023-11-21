@@ -208,7 +208,9 @@ message RankItem {
   required int64 score = 2;
   // 小黄鸭
   optional int64 score0 = 3;
+  // 小黄鸭变化
+  optional int64 score0Change = 4;
   // 排名变化
-  required int32 rankChange = 4;
-  required UserInfo user = 5;
+  required int32 rankChange = 5;
+  required UserInfo user = 6;
 }
