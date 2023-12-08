@@ -54,6 +54,22 @@ message ReqEndSettle {
 message ReqHeart {
 }
 
+// 1010 收到礼物消息后,如礼物消息里messageId属性有值,则发送此消息
+message ReqReceiveAck {
+  // 送礼消息的消息id
+  required string messageId = 1;
+  // 收到送礼消息的时间
+  required int64 timestamp = 2;
+}
+
+// 1011 收到礼物消息后,使用此礼物出兵时,如礼物消息里messageId属性有值,发送此消息
+message ReqShowAck {
+  // 送礼消息的消息id
+  required string messageId = 1;
+  // 出兵时间
+  required int64 timestamp = 2;
+}
+
 // 2001
 message ResLogin {
   // 错误码,1001表示用户名密码错误
@@ -87,6 +103,7 @@ message ResEnterCamp {
 // 2004
 message ResSendItem {
   repeated ItemInfo items = 1;
+  optional string messageId = 2;
 }
 
 // 2005
