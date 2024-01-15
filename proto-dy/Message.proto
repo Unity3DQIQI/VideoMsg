@@ -1,5 +1,5 @@
 syntax = "proto2"; //版本
-option java_package="com.msg.dy";
+option java_package="com.msg";
 option java_outer_classname = "Message";
 
 // id 1001

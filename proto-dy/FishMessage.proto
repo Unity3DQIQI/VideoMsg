@@ -1,0 +1,137 @@
+syntax = "proto2"; //版本
+option java_package="com.msg";
+option java_outer_classname = "FishMessage";
+import "Message.proto";
+
+// id 1101, 钓到鱼,增加积分
+message ReqFishAddScore {
+  // 调到鱼的用户id
+  required string platformId = 1;
+  // 这条鱼增加的积分
+  required int32 score = 2;
+}
+
+// id 1102, 开始boss战
+message ReqFishStartBossFight{
+}
+
+// id 1103, 结算boss战
+message ReqFishSettleBossFight{
+  // 排名
+  repeated string ids = 1;
+  // 时装id
+  required int32 suitId = 2;
+}
+
+// 2101
+message ResFishBindRoom {
+  // 结果
+  required int32 errorCode = 1;
+  // 房间号
+  optional string roomid = 2;
+  // 房间状态 IDLE表示房间空闲,STARTED表示游戏已开始,BOSSPREPARE表示等待发送boss战消息, BOSS表示BOSS战中, SETTLE表示结算中
+  optional string status = 3;
+  optional string gameSetId = 4;
+  // 主播信息
+  optional StreamerInfo streamer = 5;
+  // 该房间内已加入阵营的所有用户信息
+  repeated FishUserInfo users = 6;
+}
+
+// 2102
+message ResFishEnterCamp {
+  // 本次加入阵营的用户信息
+  repeated FishUserInfo users = 1;
+  // 该房间内已加入阵营的所有用户信息,未包含本次加入的
+  repeated FishUserInfo totalUsers = 2;
+}
+
+// id 2103, 增加积分的回复
+message ResFishAddScore {
+  // 错误信息
+  required int32 errorCode = 1;
+  // 用户id
+  required string platformId = 2;
+  // 玩家本局总加分
+  required int32 score=3;
+}
+
+// id 2104, boss战已报名的名单
+message ResFishBossFightList{
+  // 参加boss战的名单
+  repeated string ids = 1;
+}
+
+// id 2105, 回复开始boss战
+message ResFishStartBossFight{
+  // 结果, 1表示成功
+  required int32 errorCode = 1;
+  // 局号
+  required string gameSetId = 2;
+}
+
+// id 2106, boss战结算结果
+message ResFishSettleBossFight {
+  // 错误码
+  required int32 errorCode = 1;
+  // 时装id
+  required int32 suitId = 2;
+  // boss战排行榜
+  repeated FishBossRankItem bossRanks = 3;
+}
+
+// id 2107, 钓鱼一局结算
+message ResFishSettle {
+  required int32 errorCode = 1;
+  // 本局排名
+  repeated FishRankItem ranks = 2;
+}
+
+// boss战排名项
+message FishBossRankItem {
+  // 用户信息
+  required FishUserInfo user = 1;
+  // 增加的分数
+  required int32 addScore = 2;
+  // 时装百分比, 比如50表示50%
+  required int32 percent = 3;
+}
+
+// 游戏一局结束时排名的一项
+message FishRankItem {
+  // 用户信息
+  required FishUserInfo user = 1;
+  // 增加的分数
+  required int32 addScore = 2;
+  // 时装百分比
+  required int32 percent = 3;
+  // 排名变化
+  required int32 rankChange = 4;
+  // 时装进度
+  repeated FishRankSuitItem suits = 5;
+}
+
+message FishRankSuitItem{
+  required int32 suitId = 1;
+  required int32 percent = 2;
+}
+
+message FishUserInfo {
+  // 平台方的id
+  required string platformId = 1;
+  // 名字,昵称
+  required string name = 2;
+  // 阵营
+  required string camp = 3;
+  // 头像地址
+  required string headUrl = 4;
+  // 分数
+  required int64 score = 5;
+  // 世界排名
+  required int32 rank = 6;
+  // 已获得的称号id
+  repeated int32 titleIds = 7;
+  // 已获得的时装id
+  repeated int32 suitIds = 8;
+}
+
