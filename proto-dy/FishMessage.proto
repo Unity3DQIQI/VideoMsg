@@ -28,6 +28,12 @@ message ReqFishSettle{
 
 }
 
+// id 1105 获取钓鱼排行榜
+message ReqFishRank{
+  // 排行榜类型:WORLD表示世界排行,LIVE表示直播间排行
+  required string rankType = 1;
+}
+
 // 2101
 message ResFishBindRoom {
   // 结果
@@ -89,6 +95,12 @@ message ResFishSettleBossFight {
 message ResFishSettle {
   required int32 errorCode = 1;
   // 本局排名
+  repeated FishRoundRankItem ranks = 2;
+}
+
+// id 2108 回复钓鱼世界排行榜
+message ResFishRank {
+  required string rankType = 1;
   repeated FishRankItem ranks = 2;
 }
 
@@ -103,7 +115,7 @@ message FishBossRankItem {
 }
 
 // 游戏一局结束时排名的一项
-message FishRankItem {
+message FishRoundRankItem {
   // 用户信息
   required FishUserInfo user = 1;
   // 增加的分数
@@ -112,6 +124,16 @@ message FishRankItem {
   required int32 rankChange = 4;
   // 时装进度
   repeated FishRankSuitItem suits = 5;
+}
+
+// 世界排行榜的一项
+message FishRankItem {
+  // 用户信息
+  required FishUserInfo user = 1;
+  // 积分
+  required int64 score = 2;
+  // 称号
+  repeated int32 titles = 3;
 }
 
 message FishRankSuitItem{
