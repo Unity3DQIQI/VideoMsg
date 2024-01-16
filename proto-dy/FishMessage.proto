@@ -23,6 +23,11 @@ message ReqFishSettleBossFight{
   required int32 suitId = 2;
 }
 
+// id 1104,
+message ReqFishSettle{
+
+}
+
 // 2101
 message ResFishBindRoom {
   // 结果
@@ -103,8 +108,6 @@ message FishRankItem {
   required FishUserInfo user = 1;
   // 增加的分数
   required int32 addScore = 2;
-  // 时装百分比
-  required int32 percent = 3;
   // 排名变化
   required int32 rankChange = 4;
   // 时装进度
