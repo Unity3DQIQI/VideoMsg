@@ -1,7 +1,6 @@
 syntax = "proto2"; //版本
 option java_package="com.msg";
 option java_outer_classname = "FishMessage";
-import "Message.proto";
 
 // id 1101, 钓到鱼,增加积分
 message ReqFishAddScore {
@@ -44,7 +43,7 @@ message ResFishBindRoom {
   optional string status = 3;
   optional string gameSetId = 4;
   // 主播信息
-  optional StreamerInfo streamer = 5;
+  optional FishStreamerInfo streamer = 5;
   // 该房间内已加入阵营的所有用户信息
   repeated FishUserInfo users = 6;
 }
@@ -160,3 +159,12 @@ message FishUserInfo {
   repeated int32 suitIds = 8;
 }
 
+// 主播信息
+message FishStreamerInfo {
+  // 平台id,抖音方主播的id
+  required string platformId = 2;
+  // 主播在平台的昵称
+  required string name = 3;
+  // 头像地址
+  required string headUrl = 4;
+}
