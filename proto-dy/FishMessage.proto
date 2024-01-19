@@ -62,8 +62,10 @@ message ResFishAddScore {
   required int32 errorCode = 1;
   // 用户id
   required string platformId = 2;
-  // 玩家本局总加分
+  // 玩家此次加分
   required int32 score=3;
+  // 玩家当局总加分
+  required int32 totalScore=4;
 }
 
 // id 2104, boss战已报名的名单
