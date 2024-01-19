@@ -103,6 +103,12 @@ message ResFishRank {
   repeated FishRankItem ranks = 2;
 }
 
+// id 2109
+message ResFishSendItem {
+  repeated FishItemInfo items = 1;
+  optional string messageId = 2;
+}
+
 // boss战排名项
 message FishBossRankItem {
   // 用户信息
@@ -167,4 +173,21 @@ message FishStreamerInfo {
   required string name = 3;
   // 头像地址
   required string headUrl = 4;
+}
+
+message FishItemInfo{
+  // 礼物id
+  required int32 itemId = 1;
+  // 礼物名字
+  required string name = 2;
+  // 价格
+  required int32 cost = 3;
+  // 礼物数量
+  required int32 num = 4;
+  // 累计该礼物数量
+  required int32 totalNum = 5;
+  // 送礼物的人
+  required FishUserInfo user = 6;
+  // 是否送礼前创建玩家形象
+  required bool createUser = 7;
 }

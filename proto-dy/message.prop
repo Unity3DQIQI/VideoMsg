@@ -35,6 +35,7 @@ ResFishStartBossFight=2105
 ResFishSettleBossFight=2106
 ResFishSettle=2107
 ResFishRank=2108
+ResFishSendItem=2109
 S2PReqRegisterServer=10001
 S2PReqKeepAlive=10002
 S2PReqReceiveAck=10003
