@@ -33,6 +33,14 @@ message ReqFishRank{
   required string rankType = 1;
 }
 
+// id 1106 偷鱼
+message ReqFishStole{
+  // 小偷id
+  required string thiefId = 1;
+  // 被偷者信息
+  repeated FishStolenLostInfo lostInfos = 2;
+}
+
 // 2101
 message ResFishBindRoom {
   // 结果
@@ -109,6 +117,14 @@ message ResFishRank {
 message ResFishSendItem {
   repeated FishItemInfo items = 1;
   optional string messageId = 2;
+}
+
+// id 2110
+message ResFishStole{
+  // 小偷分数更新
+  required FishStolenUpdateInfo thiefInfo = 1;
+  // 被偷者分数更新
+  repeated FishStolenUpdateInfo lostInfos = 2;
 }
 
 // boss战排名项
@@ -192,4 +208,22 @@ message FishItemInfo{
   required FishUserInfo user = 6;
   // 是否送礼前创建玩家形象
   required bool createUser = 7;
+}
+
+// 被偷者信息
+message FishStolenLostInfo {
+  // 被偷者id
+  required string id = 1;
+  // 被偷分数
+  required int32 score = 2;
+}
+
+// 偷鱼后分数变化更新
+message FishStolenUpdateInfo{
+  // 用户id
+  required string id = 1;
+  // 分数变化,小偷为正,被偷的用户为负
+  required int32 score = 2;
+  // 分数变化后玩家身上的分数
+  required int32 totalScore = 3;
 }
