@@ -47,7 +47,7 @@ message ResFishBindRoom {
   required int32 errorCode = 1;
   // 房间号
   optional string roomid = 2;
-  // 房间状态 IDLE表示房间空闲,STARTED表示游戏已开始,BOSSPREPARE表示等待发送boss战消息, BOSS表示BOSS战中, SETTLE表示结算中
+  // 房间状态 IDLE表示房间空闲,STARTED表示游戏已开始,BOSSPREPARE表示等待发送boss战消息, BOSS表示BOSS战中, BOSS_WAIT_END表示等待boss结算, SETTLE表示结算中
   optional string status = 3;
   optional string gameSetId = 4;
   // 主播信息
@@ -125,6 +125,11 @@ message ResFishStole{
   required FishStolenUpdateInfo thiefInfo = 1;
   // 被偷者分数更新
   repeated FishStolenUpdateInfo lostInfos = 2;
+}
+
+// id 2111 boss战待结算玩家送礼信息
+message ResFishBossWaitSettleList{
+  repeated FishBossGiftInfo bossGiftInfos = 1;
 }
 
 // boss战排名项
@@ -226,4 +231,14 @@ message FishStolenUpdateInfo{
   required int32 score = 2;
   // 分数变化后玩家身上的分数
   required int32 totalScore = 3;
+}
+
+// boss战待结算玩家送礼信息
+message FishBossGiftInfo{
+  // 用户id
+  required string id = 1;
+  // 礼物id
+  required int32 itemId = 2;
+  // 礼物数量
+  required int32 count = 3;
 }
