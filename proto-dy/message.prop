@@ -38,6 +38,7 @@ ResFishSettle=2107
 ResFishRank=2108
 ResFishSendItem=2109
 ResFishStole=2110
+ResFishBossWaitSettleList=2111
 S2PReqRegisterServer=10001
 S2PReqKeepAlive=10002
 S2PReqReceiveAck=10003
