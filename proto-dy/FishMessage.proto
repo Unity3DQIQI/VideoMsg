@@ -241,4 +241,6 @@ message FishBossGiftInfo{
   required int32 itemId = 2;
   // 礼物数量
   required int32 count = 3;
+  // 礼物单价
+  required int32 cost = 4;
 }
