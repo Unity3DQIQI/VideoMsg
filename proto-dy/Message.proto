@@ -172,6 +172,11 @@ message ResEndSettle {
 message ResHeart {
 }
 
+// 2014 评论,弹幕
+message ResSendComment {
+  repeated CommentInfo comments = 1;
+}
+
 // 主播信息
 message StreamerInfo {
   // 平台id,抖音方主播的id
@@ -230,4 +235,12 @@ message RankItem {
   // 排名变化
   required int32 rankChange = 5;
   required UserInfo user = 6;
+}
+
+// 评论
+message CommentInfo{
+  // 评论人id
+  required string id = 1;
+  // 评论内容
+  required string content = 2;
 }
