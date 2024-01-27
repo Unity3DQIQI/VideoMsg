@@ -132,12 +132,17 @@ message ResFishBossWaitSettleList{
   repeated FishBossGiftInfo bossGiftInfos = 1;
 }
 
-// id 2112 boss战1分钟倒计时提示
+// id 2112 boss战剩余时间倒计时提示
 message ResFishBossLeftTime {
   // 剩余时间,秒
   required int32 leftSeconds = 1;
   // 门票id
   required int32 itemId = 2;
+}
+
+// id 2113 大鱼1分钟提示
+message ResFishBoss1MinNotice{
+  required int32 itemId = 1;
 }
 
 // boss战排名项
