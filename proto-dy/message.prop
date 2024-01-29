@@ -42,6 +42,7 @@ ResFishStole=2110
 ResFishBossWaitSettleList=2111
 ResFishBossLeftTime=2112
 ResFishBoss1MinNotice=2113
+ResFishChangeSuit=2114
 S2PReqRegisterServer=10001
 S2PReqKeepAlive=10002
 S2PReqReceiveAck=10003

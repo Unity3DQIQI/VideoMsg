@@ -145,6 +145,14 @@ message ResFishBoss1MinNotice{
   required int32 itemId = 1;
 }
 
+// id 2114 换装消息
+message ResFishChangeSuit{
+  // 玩家id
+  required string platformId = 1;
+  // 时装id
+  required int32 suitId = 2;
+}
+
 // boss战排名项
 message FishBossRankItem {
   // 用户信息
@@ -199,6 +207,8 @@ message FishUserInfo {
   repeated int32 titleIds = 7;
   // 已获得的时装id
   repeated int32 suitIds = 8;
+  // 当前时装id
+  optional int32 currentSuit = 9;
 }
 
 // 主播信息
