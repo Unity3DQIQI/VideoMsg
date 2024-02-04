@@ -41,6 +41,12 @@ message ReqFishStole{
   repeated FishStolenLostInfo lostInfos = 2;
 }
 
+// id 1107 踢出玩家
+message ReqFishKickPlayer{
+  // 玩家id
+  required string id = 1;
+}
+
 // 2101
 message ResFishBindRoom {
   // 结果
@@ -155,8 +161,9 @@ message ResFishChangeSuit{
 
 // id 2115 踢出玩家
 message ResFishKickPlayer{
-  // 被踢出的玩家id列表
-  repeated string ids = 1;
+  // 被踢出的玩家
+  required string id = 1;
+  repeated FishUserInfo totalUsers = 2;
 }
 
 // boss战排名项

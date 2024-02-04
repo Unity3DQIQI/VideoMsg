@@ -15,6 +15,7 @@ ReqFishSettleBossFight=1103
 ReqFishSettle=1104
 ReqFishRank=1105
 ReqFishStole=1106
+ReqFishKickPlayer=1107
 ResLogin=2001
 ResBindRoom=2002
 ResEnterCamp=2003
