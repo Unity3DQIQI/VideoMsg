@@ -153,6 +153,12 @@ message ResFishChangeSuit{
   required int32 suitId = 2;
 }
 
+// id 2115 踢出玩家
+message ResFishKickPlayer{
+  // 被踢出的玩家id列表
+  repeated string ids = 1;
+}
+
 // boss战排名项
 message FishBossRankItem {
   // 用户信息
