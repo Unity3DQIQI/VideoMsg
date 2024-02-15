@@ -33,14 +33,6 @@ message ReqFishRank{
   required string rankType = 1;
 }
 
-// id 1106 偷鱼
-message ReqFishStole{
-  // 小偷id
-  required string thiefId = 1;
-  // 被偷者信息
-  repeated FishStolenLostInfo lostInfos = 2;
-}
-
 // id 1107 踢出玩家
 message ReqFishKickPlayer{
   // 玩家id
@@ -164,6 +156,16 @@ message ResFishKickPlayer{
   // 被踢出的玩家
   required string id = 1;
   repeated FishUserInfo totalUsers = 2;
+}
+
+// id 2116播放动画
+message ResFishPlayAnimation{
+  // 玩家id
+  required string id = 1;
+  // 动画id, 10001为大姨动画
+  required int32 animationId = 2;
+  // 持续时间
+  required int32 duration = 3;
 }
 
 // boss战排名项
