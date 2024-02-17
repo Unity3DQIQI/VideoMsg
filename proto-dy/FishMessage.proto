@@ -168,6 +168,14 @@ message ResFishPlayAnimation{
   required int32 duration = 3;
 }
 
+// id 2117 钓鱼盲盒
+message ResFishBlindBox{
+  // 玩家id
+  required string id = 1;
+  // 中奖物品
+  repeated FishProp props = 2;
+}
+
 // boss战排名项
 message FishBossRankItem {
   // 用户信息
@@ -281,4 +289,12 @@ message FishBossGiftInfo{
   required int32 count = 3;
   // 礼物单价
   required int32 cost = 4;
+}
+
+// 物品,道具
+message FishProp{
+  // 模型id, 客户端可以用来对应图片信息
+  required int32 modelId = 1;
+  // 数量
+  required int32 num = 2;
 }

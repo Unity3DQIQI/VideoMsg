@@ -45,6 +45,7 @@ ResFishBoss1MinNotice=2113
 ResFishChangeSuit=2114
 ResFishKickPlayer=2115
 ResFishPlayAnimation=2116
+ResFishBlindBox=2117
 S2PReqRegisterServer=10001
 S2PReqKeepAlive=10002
 S2PReqReceiveAck=10003
