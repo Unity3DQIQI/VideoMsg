@@ -293,8 +293,10 @@ message FishBossGiftInfo{
 
 // 物品,道具
 message FishProp{
+  // 服务器唯一编号
+  required int64 id = 1;
   // 模型id, 客户端可以用来对应图片信息
-  required int32 modelId = 1;
+  required int32 modelId = 2;
   // 数量
-  required int32 num = 2;
+  required int32 num = 3;
 }
