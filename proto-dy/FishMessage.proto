@@ -165,15 +165,53 @@ message ResFishPlayAnimation{
   // 动画id, 10001为大姨动画
   required int32 animationId = 2;
   // 持续时间
-  required int32 duration = 3;
+  required int64 duration = 3;
 }
 
-// id 2117 钓鱼盲盒
+// id 2117 一叶知秋盲盒(废弃)
 message ResFishBlindBox{
   // 玩家id
   required string id = 1;
   // 中奖物品
   repeated FishProp props = 2;
+}
+
+// id 2118 开始获取特殊鱼获,内含弹幕信息(暂时不用)
+message ResFishObtainSpecial {
+  // 用户id
+  required string id = 1;
+  // 弹幕信息
+  required FishBulletComment bulletComment = 2;
+}
+
+// id 2119 获取特殊鱼获的结果(暂时不用)
+message ResFishObtainSpecialResult{
+  // 用户id
+  required string id = 1;
+  // 是否成功,true-成功,false-大鱼溜走了
+  required bool success = 2;
+  // 获取到的特殊鱼获
+  optional FishProp prop = 3;
+}
+
+// id 2120 物品变化信息消息(暂时不用)
+message ResFishPropUpdate {
+  // 用户id
+  required string id = 1;
+  // 具体的物品变化信息
+  required FishPropUpdateInfo info = 2;
+}
+
+// id 2121 起鱼
+message ResUpFish {
+  // 用户id
+  required string id = 1;
+  // 鱼类型,1为起普通鱼,加分已由ResAddScore消息处理 2为起特殊鱼获 3 为下一轮显示弹幕 4为大鱼溜走了
+  required int32 type = 2;
+  // 特殊鱼获信息
+  optional FishProp prop = 5;
+  //如果有,则下一次甩杆显示弹幕
+  optional FishBulletComment bullet = 6;
 }
 
 // boss战排名项
@@ -299,4 +337,26 @@ message FishProp{
   required int32 modelId = 2;
   // 数量
   required int32 num = 3;
+  // 客户端物品类型
+  required int32 cType = 4;
+}
+
+// 物品变化信息
+message FishPropUpdateInfo {
+  // 服务器唯一编号
+  required int64 id = 1;
+  // 模型id, 客户端可以用来对应图片信息
+  required int32 modelId = 2;
+  // 变化的数量
+  required int32 numChange = 3;
+  // 变化后的数量
+  required int32 num = 4;
+}
+
+// 弹幕信息
+message FishBulletComment{
+  // 弹幕内容
+  required string comment = 1;
+  // 弹幕持续时间, 毫秒
+  required int64 duration = 2;
 }
