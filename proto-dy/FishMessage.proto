@@ -14,7 +14,7 @@ message ReqFishAddScore {
 message ReqFishStartBossFight{
 }
 
-// id 1103, 结算boss战
+// id 1103, 结算boss战(废弃)
 message ReqFishSettleBossFight{
   // 排名
   repeated string ids = 1;
@@ -74,7 +74,7 @@ message ResFishAddScore {
   required int32 totalScore=4;
 }
 
-// id 2104, boss战已报名的名单
+// id 2104, boss战已报名的名单(已废弃)
 message ResFishBossFightList{
   // 参加boss战的名单
   repeated string ids = 1;
@@ -88,7 +88,7 @@ message ResFishStartBossFight{
   required string gameSetId = 2;
 }
 
-// id 2106, boss战结算结果
+// id 2106, boss战结算结果(废弃)
 message ResFishSettleBossFight {
   // 错误码
   required int32 errorCode = 1;
@@ -206,12 +206,33 @@ message ResFishPropUpdate {
 message ResUpFish {
   // 用户id
   required string id = 1;
-  // 鱼类型,1为起普通鱼,加分已由ResAddScore消息处理 2为起特殊鱼获 3 为下一轮显示弹幕 4为大鱼溜走了
+  // 鱼类型,1为起普通鱼,加分已由ResAddScore消息处理 2为起特殊鱼获 3 为下一轮显示弹幕 4为大鱼溜走了 5 为起锦鲤
   required int32 type = 2;
   // 特殊鱼获信息
   optional FishProp prop = 5;
   //如果有,则下一次甩杆显示弹幕
   optional FishBulletComment bullet = 6;
+}
+
+// id 2122 累积的,还未放出的锦鲤数量变化
+message ResLuckyFishInfo {
+  // 增加的锦鲤数量
+  required int32 addCount = 1;
+  // 增加后的锦鲤数量
+  required int32 totalCount = 2;
+}
+
+// id 2123 boss战结束
+message ResFishBossFightFinish {
+
+}
+
+// id 2124 boss战期间的倒计时,boss战还有多少时间结束
+message ResBossCountDown {
+  // 本局boss战总时长(秒)
+  required int32 total = 1;
+  // 剩余时长(秒)
+  required int32 left = 2;
 }
 
 // boss战排名项
@@ -232,8 +253,8 @@ message FishRoundRankItem {
   required int32 addScore = 2;
   // 排名变化
   required int32 rankChange = 4;
-  // 时装进度
-  repeated FishRankSuitItem suits = 5;
+//  // 时装进度
+//  repeated FishRankSuitItem suits = 5;
 }
 
 // 世界排行榜的一项
