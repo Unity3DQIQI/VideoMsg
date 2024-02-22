@@ -206,7 +206,7 @@ message ResFishPropUpdate {
 message ResUpFish {
   // 用户id
   required string id = 1;
-  // 鱼类型,1为起普通鱼,加分已由ResAddScore消息处理 2为起特殊鱼获 3 为下一轮显示弹幕 4为大鱼溜走了 5 为起锦鲤
+  // 鱼类型,1为起普通鱼,加分已由ResAddScore消息处理 2为起特殊鱼获 3 为下一轮显示弹幕 4为大鱼溜走了
   required int32 type = 2;
   // 特殊鱼获信息
   optional FishProp prop = 5;
