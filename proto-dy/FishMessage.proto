@@ -235,6 +235,40 @@ message ResBossCountDown {
   required int32 left = 2;
 }
 
+// 2125 黄金座位出现
+message ResFishGoldenSeatAppear{
+  // 需要被标记为黄金座位的位置
+  repeated string seats = 1;
+}
+
+// 2126 对换位置, 下面是换之前的信息,客户端将两人对换
+message ResFishSwapSeat {
+  // 1号玩家id
+  required string id1 = 1;
+  // 1号玩家座位
+  required string camp1 = 2;
+  // 2号玩家id
+  required string id2 = 3;
+  // 2号玩家座位
+  required string camp2 = 4;
+}
+
+// 2127 移动位置,移动到空白为止
+message ResFishMoveSeat {
+  // 移动位置的玩家
+  required string id = 1;
+  // 玩家原位置
+  required string fromCamp = 2;
+  // 玩家移动到的位置
+  required string toCamp = 3;
+}
+
+// 2128 某玩家获得黄金宝座界面提示,只是用于界面播报
+message ResFishWinGoldenSeatTip{
+  // 获得宝座的玩家id
+  required string id = 1;
+}
+
 // boss战排名项
 message FishBossRankItem {
   // 用户信息
