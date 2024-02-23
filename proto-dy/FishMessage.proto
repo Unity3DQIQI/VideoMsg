@@ -39,6 +39,13 @@ message ReqFishKickPlayer{
   required string id = 1;
 }
 
+// id 1108 服务器内部使用,客户端不要使用
+message S2SFishEliminatePlayer{
+  required bool success = 1;
+  // 被踢玩家
+  optional string id = 2;
+}
+
 // 2101
 message ResFishBindRoom {
   // 结果
@@ -267,6 +274,46 @@ message ResFishMoveSeat {
 message ResFishWinGoldenSeatTip{
   // 获得宝座的玩家id
   required string id = 1;
+}
+
+// 2129 淘汰位出现, 显示淘汰位前,需要客户端把场上已有淘汰位标记清掉,再标记该座位
+message ResFishEliminateAppear{
+  // 位置号
+  required string camp = 1;
+}
+
+// 2130 开始抢夺淘汰位,开始后应将该座位的淘汰标记清除
+message ResFishEliminateStart{
+  // 防守者id
+  required string defenderId = 1;
+  // 挑战者id
+  required string challengerId = 2;
+  // 抢夺的座位号
+  required string camp = 3;
+}
+
+// 2131 抢夺进度
+message ResFishEliminateProgress {
+  // 防守者id
+  required string defenderId = 1;
+  // 挑战者id
+  required string challengerId = 2;
+  // 防守者票数
+  required int32 defenderVotes = 3;
+  // 挑战者票数
+  required int32 challengerVotes = 4;
+}
+
+// 2132 座位抢夺结果
+message ResFishEliminateResult{
+  // 防守者id
+  required string defenderId = 1;
+  // 挑战者id
+  required string challengerId = 2;
+  // 抢夺的座位号
+  required string camp = 3;
+  // 是否挑战成功
+  required bool success = 4;
 }
 
 // boss战排名项
