@@ -251,11 +251,11 @@ message ResFishGoldenSeatAppear{
 // 2126 对换位置, 下面是换之前的信息,客户端将两人对换
 message ResFishSwapSeat {
   // 1号玩家id
-  required string id1 = 1;
+  optional string id1 = 1;
   // 1号玩家座位
   required string camp1 = 2;
   // 2号玩家id
-  required string id2 = 3;
+  optional string id2 = 3;
   // 2号玩家座位
   required string camp2 = 4;
 }
@@ -315,6 +315,8 @@ message ResFishEliminateResult{
   // 是否挑战成功
   required bool success = 4;
 }
+
+
 
 // boss战排名项
 message FishBossRankItem {
