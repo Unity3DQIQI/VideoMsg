@@ -316,7 +316,15 @@ message ResFishEliminateResult{
   required bool success = 4;
 }
 
-
+// 2133 撒网捕鱼结果信息
+message ResCatchFishResult{
+  // 用户id
+  required string id = 1;
+  // 玩家此次加分(普通鱼获)
+  required int32 score=2;
+  // 特殊鱼获
+  repeated FishProp props = 4;
+}
 
 // boss战排名项
 message FishBossRankItem {
