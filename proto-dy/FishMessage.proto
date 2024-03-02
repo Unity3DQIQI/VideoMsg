@@ -366,6 +366,8 @@ message FishRoundRankItem {
   repeated FishProp props = 7;
   // 排名变化
   required int32 rankChange = 8;
+  // 连胜数
+  required int32 comboWin = 9;
 }
 
 // 世界排行榜的一项
@@ -374,8 +376,8 @@ message FishRankItem {
   required FishUserInfo user = 1;
   // 积分
   required int64 score = 2;
-  // 称号
-  repeated int32 titles = 3;
+  // 连胜数
+  required int32 comboWin = 3;
 }
 
 message FishRankSuitItem{
