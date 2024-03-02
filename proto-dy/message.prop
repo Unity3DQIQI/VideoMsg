@@ -63,6 +63,7 @@ ResFishEliminateStart=2130
 ResFishEliminateProgress=2131
 ResFishEliminateResult=2132
 ResCatchFishResult=2133
+ResSideScore=2134
 S2PReqRegisterServer=10001
 S2PReqKeepAlive=10002
 S2PReqReceiveAck=10003

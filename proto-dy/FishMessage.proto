@@ -31,7 +31,7 @@ message ReqFishSettle{
 
 // id 1105 获取钓鱼排行榜
 message ReqFishRank{
-  // 排行榜类型:WORLD表示世界排行,LIVE表示直播间排行
+  // 排行榜类型:WORLD表示世界排行,LIVE表示直播间排行,DRAGON表示龙,BOX表示宝箱,BIGFISH表示大鱼,SMALLFISH表示小鱼
   required string rankType = 1;
 }
 
@@ -110,8 +110,10 @@ message ResFishSettleBossFight {
 // id 2107, 钓鱼一局结算
 message ResFishSettle {
   required int32 errorCode = 1;
+  // LEFT:左边胜,RIGHT:右边胜,DRAW:平手
+  required string winner = 2;
   // 本局排名
-  repeated FishRoundRankItem ranks = 2;
+  repeated FishRoundRankItem ranks = 3;
 }
 
 // id 2108 回复钓鱼世界排行榜
@@ -326,6 +328,14 @@ message ResCatchFishResult{
   required int32 score=2;
   // 特殊鱼获
   repeated FishProp props = 4;
+}
+
+// 2134 左右两边总分更新消息
+message ResSideScore{
+  // 左
+  required int32 left = 1;
+  // 右
+  required int32 right = 2;
 }
 
 // boss战排名项
