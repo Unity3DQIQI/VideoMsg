@@ -8,6 +8,8 @@ message ReqFishAddScore {
   required string platformId = 1;
   // 这条鱼增加的积分
   required int32 score = 2;
+  // 鱼获等级
+  required int32 level = 3;
 }
 
 // id 1102, 开始boss战
@@ -340,12 +342,20 @@ message FishBossRankItem {
 message FishRoundRankItem {
   // 用户信息
   required FishUserInfo user = 1;
-  // 增加的分数
+  // 获得的分数
   required int32 addScore = 2;
+  // 获得的龙
+  required int32 addDragon = 3;
+  // 获得的宝箱
+  required int32 addBox = 4;
+  // 获得的大鱼
+  required int32 addBigFish = 5;
+  // 获得的小鱼
+  required int32 addSmallFish = 6;
+  // 获得的物品
+  repeated FishProp props = 7;
   // 排名变化
-  required int32 rankChange = 4;
-//  // 时装进度
-//  repeated FishRankSuitItem suits = 5;
+  required int32 rankChange = 8;
 }
 
 // 世界排行榜的一项

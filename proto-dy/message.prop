@@ -73,3 +73,4 @@ P2SEnterRoom=20003
 P2SResKeepAlive=20004
 P2SUnRegisterRoom=20005
 P2SSendComment=20006
+P2SReloadConfig=20007
