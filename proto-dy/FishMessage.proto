@@ -48,6 +48,12 @@ message S2SFishEliminatePlayer{
   optional string id = 2;
 }
 
+// id 1109 开始游戏
+message ReqFishStartGameSet{
+  // 模式类型, 1表示 15分钟(3条标鱼), 2表示30分钟(5条标鱼), 3表示40分钟(10条标鱼)
+  required int32 timeMode = 1;
+}
+
 // 2101
 message ResFishBindRoom {
   // 结果

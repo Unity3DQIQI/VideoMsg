@@ -16,6 +16,7 @@ ReqFishSettle=1104
 ReqFishRank=1105
 ReqFishKickPlayer=1107
 S2SFishEliminatePlayer=1108
+ReqFishStartGameSet=1109
 ResLogin=2001
 ResBindRoom=2002
 ResEnterCamp=2003
