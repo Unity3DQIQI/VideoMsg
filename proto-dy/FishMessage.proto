@@ -235,8 +235,10 @@ message ResUpFish {
 message ResLuckyFishInfo {
   // 增加的锦鲤数量
   required int32 addCount = 1;
-  // 增加后的锦鲤数量
+  // 累积的锦鲤数量
   required int32 totalCount = 2;
+  // boss战中剩余的锦鲤数量
+  required int32 leftCount = 3;
 }
 
 // id 2123 boss战结束
