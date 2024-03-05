@@ -376,6 +376,8 @@ message FishRoundRankItem {
   required int32 rankChange = 8;
   // 连胜数
   required int32 comboWin = 9;
+  // 胜方加分
+  required int32 bonus = 10;
 }
 
 // 世界排行榜的一项
