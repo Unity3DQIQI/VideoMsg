@@ -300,8 +300,12 @@ message ResFishEliminateStart{
   required string defenderId = 1;
   // 挑战者id
   required string challengerId = 2;
+  // 挑战者名字
+  required string challengerName = 3;
+  // 挑战者头像
+  required string challengerHead = 4;
   // 抢夺的座位号
-  required string camp = 3;
+  required string camp = 5;
 }
 
 // 2131 抢夺进度
