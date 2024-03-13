@@ -179,7 +179,7 @@ message ResFishKickPlayer{
 message ResFishPlayAnimation{
   // 玩家id
   required string id = 1;
-  // 动画id, 10001为大姨动画, 10002为龙鱼使者动画
+  // 动画id, 10001为大姨动画, 10002为龙鱼使者动画, 10003为哪吒闹海动画
   required int32 animationId = 2;
   // 持续时间
   required int64 duration = 3;
