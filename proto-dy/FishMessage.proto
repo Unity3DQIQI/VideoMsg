@@ -179,7 +179,7 @@ message ResFishKickPlayer{
 message ResFishPlayAnimation{
   // 玩家id
   required string id = 1;
-  // 动画id, 10001为大姨动画
+  // 动画id, 10001为大姨动画, 10002为龙鱼使者动画
   required int32 animationId = 2;
   // 持续时间
   required int64 duration = 3;
@@ -338,6 +338,8 @@ message ResCatchFishResult{
   required string id = 1;
   // 玩家此次加分(普通鱼获)
   required int32 score=2;
+  // 网类型, 1为普通网,2为铁网
+  required int32 netType=3;
   // 特殊鱼获
   repeated FishProp props = 4;
 }
