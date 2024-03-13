@@ -326,10 +326,12 @@ message ResFishEliminateResult{
   required string defenderId = 1;
   // 挑战者id
   required string challengerId = 2;
+  // 挑战者名字
+  required string challengerName = 3;
   // 抢夺的座位号
-  required string camp = 3;
+  required string camp = 4;
   // 是否挑战成功
-  required bool success = 4;
+  required bool success = 5;
 }
 
 // 2133 撒网捕鱼结果信息
