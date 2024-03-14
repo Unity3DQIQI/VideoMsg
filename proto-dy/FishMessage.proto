@@ -185,12 +185,14 @@ message ResFishPlayAnimation{
   required int64 duration = 3;
 }
 
-// id 2117 一叶知秋盲盒(废弃)
+// id 2117 黄金宝箱或整蛊宝箱
 message ResFishBlindBox{
   // 玩家id
   required string id = 1;
-  // 中奖物品
-  repeated FishProp props = 2;
+  // 宝箱
+  required FishProp box = 2;
+  // 宝箱里面的物品
+  repeated FishProp props = 3;
 }
 
 // id 2118 开始获取特殊鱼获,内含弹幕信息(暂时不用)
