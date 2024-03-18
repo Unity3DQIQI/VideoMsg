@@ -358,6 +358,20 @@ message ResSideScore{
   required int32 right = 2;
 }
 
+// 2135 大鱼钩
+message ResFishDaYuGouResult{
+  // 施放者id
+  required string caster = 1;
+  // 受害者id
+  required string victim = 2;
+  // 偷鱼是否成功, 不成功则判定为闪避
+  required bool success = 3;
+  // 偷鱼成功后显示的连招数量
+  required int32 combo = 4;
+  // 偷鱼成功后显示是否为暴击
+  required bool critical = 5;
+}
+
 // boss战排名项
 message FishBossRankItem {
   // 用户信息
