@@ -227,12 +227,12 @@ message ResFishPropUpdate {
 message ResUpFish {
   // 用户id
   required string id = 1;
-  // 鱼类型,1为起普通鱼,加分已由ResAddScore消息处理 2为起特殊鱼获 3 为下一轮显示弹幕 4为大鱼溜走了
+  // 鱼类型,1为起普通鱼,加分已由ResAddScore消息处理 2为起龙
   required int32 type = 2;
+  // type取值为2时,表示龙id
+  required int32 dragonId = 3;
   // 特殊鱼获信息
-  optional FishProp prop = 5;
-  //如果有,则下一次甩杆显示弹幕
-  optional FishBulletComment bullet = 6;
+  optional FishProp prop = 4;
 }
 
 // id 2122 累积的,还未放出的锦鲤数量变化
