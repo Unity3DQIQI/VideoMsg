@@ -372,6 +372,14 @@ message ResFishDaYuGouResult{
   required bool critical = 5;
 }
 
+// 2136 玩家临时背包物品数量变化
+message ResFishTempBackupItemChange{
+  // 玩家id
+  required string id = 1;
+  // 变化的物品
+  required FishProp prop = 2;
+}
+
 // boss战排名项
 message FishBossRankItem {
   // 用户信息
@@ -483,6 +491,8 @@ message FishStolenUpdateInfo{
   required int32 score = 2;
   // 分数变化后玩家身上的分数
   required int32 totalScore = 3;
+  // 是否保护
+  required bool protect = 4;
 }
 
 // boss战待结算玩家送礼信息
