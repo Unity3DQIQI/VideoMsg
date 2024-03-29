@@ -54,6 +54,19 @@ message ReqFishStartGameSet{
   required int32 timeMode = 1;
 }
 
+// id 1110 打开商店
+message ReqFishOpenStore{
+
+}
+
+// id 1111 购买商品
+message ReqFishBuyGood{
+    // 玩家id
+    required string id = 1;
+    // 商品id
+    required int32 goodId = 2;
+}
+
 // 2101
 message ResFishBindRoom {
   // 结果
@@ -380,6 +393,24 @@ message ResFishTempBackupItemChange{
   required FishProp prop = 2;
 }
 
+// 2137 打开商店的消息返回
+message ResFishOpenStore{
+  // 商品列表
+  repeated FishGoodInfo goods = 1;
+  // 玩家列表
+  repeated FishStoreUserInfo users = 2;
+}
+
+// 2138 购买商品结果
+message ResFishBuyGood{
+  // 结果
+  required int32 errorCode = 1;
+  // 玩家id
+  required string id = 2;
+  // 购买操作后玩家信息更新,有此字段则需要更新
+  optional FishStoreUserInfo storeUser = 3;
+}
+
 // boss战排名项
 message FishBossRankItem {
   // 用户信息
@@ -537,4 +568,22 @@ message FishBulletComment{
   required string comment = 1;
   // 弹幕持续时间, 毫秒
   required int64 duration = 2;
+}
+
+// 商品信息
+message FishGoodInfo{
+  // 商品id
+  required int32 goodId = 1;
+  // 商品价格
+  required int32 goodPrice = 2;
+}
+
+// 商店页面玩家信息
+message FishStoreUserInfo{
+  // 玩家id
+  required string id = 1;
+  // 玩家头像
+  required string headUrl = 2;
+  // 龙鱼币数量
+  required int32 dragonCoin = 3;
 }
