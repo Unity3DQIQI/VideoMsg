@@ -56,7 +56,8 @@ message ReqFishStartGameSet{
 
 // id 1110 打开商店
 message ReqFishOpenStore{
-
+  // 用户id
+  required string id = 1;
 }
 
 // id 1111 购买商品
@@ -443,6 +444,8 @@ message FishRoundRankItem {
   required int32 comboWin = 9;
   // 胜方加分
   required int32 bonus = 10;
+  // 龙鱼币
+  required int32 dragonCoin = 11;
 }
 
 // 世界排行榜的一项
