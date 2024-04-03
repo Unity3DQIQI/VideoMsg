@@ -408,8 +408,10 @@ message ResFishBuyGood{
   required int32 errorCode = 1;
   // 玩家id
   required string id = 2;
+  // 商品列表
+  repeated FishGoodInfo goods = 3;
   // 购买操作后玩家信息更新,有此字段则需要更新
-  optional FishStoreUserInfo storeUser = 3;
+  optional FishStoreUserInfo storeUser = 4;
 }
 
 // boss战排名项
@@ -579,6 +581,7 @@ message FishGoodInfo{
   required int32 goodId = 1;
   // 商品价格
   required int32 goodPrice = 2;
+  required bool taken = 3;
 }
 
 // 商店页面玩家信息
