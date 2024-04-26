@@ -511,6 +511,8 @@ message FishItemInfo{
   required FishUserInfo user = 6;
   // 是否送礼前创建玩家形象
   required bool createUser = 7;
+  // 是否是首充,true为首充,false或不存在就不是首充
+  optional bool firstPay = 8;
 }
 
 // 被偷者信息
