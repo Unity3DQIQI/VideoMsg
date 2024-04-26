@@ -288,6 +288,8 @@ message ResFishSwapSeat {
   optional string id2 = 3;
   // 2号玩家座位
   required string camp2 = 4;
+  // 是否播放王座动画
+  required bool showGolden = 5;
 }
 
 // 2127 移动位置,移动到空白为止
